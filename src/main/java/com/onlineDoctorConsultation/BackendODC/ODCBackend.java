@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class BackendODC {
+public class ODCBackend {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendODC.class, args);
+		SpringApplication.run(ODCBackend.class, args);
 	}
 }

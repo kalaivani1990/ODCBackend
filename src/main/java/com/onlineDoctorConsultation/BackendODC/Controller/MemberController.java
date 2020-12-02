@@ -20,7 +20,7 @@ import com.onlineDoctorConsultation.BackendODC.Dao.MemberDAO;
 import com.onlineDoctorConsultation.BackendODC.Model.Member;
 
 @RestController
-@RequestMapping("/flightRight")
+@RequestMapping("/testcall")
 public class MemberController {
 
 	@Autowired
