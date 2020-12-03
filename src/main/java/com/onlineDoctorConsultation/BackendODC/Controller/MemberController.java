@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +21,18 @@ import com.onlineDoctorConsultation.BackendODC.Dao.MemberDAO;
 import com.onlineDoctorConsultation.BackendODC.Model.Member;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/testcall")
 public class MemberController {
 
 	@Autowired
 	MemberDAO memberDAO;
+	
+	@GetMapping("/simple")
+	public ResponseEntity<String> getString() {
+		System.out.println("i am here");
+		return ResponseEntity.ok("vani");
+	}
 
 	/* to create a new member */
 	@PostMapping("/members")
@@ -42,7 +50,8 @@ public class MemberController {
 	@GetMapping("/members/{id}")
 	public ResponseEntity<Member> getMemberById(@PathVariable(value = "id") Long memid) {
 
-		Member mem = memberDAO.findOne(memid);
+		/*Member mem = memberDAO.findOne(memid); */
+		Member mem = new Member();
 
 		if (mem == null) {
 			return ResponseEntity.notFound().build();
@@ -56,7 +65,9 @@ public class MemberController {
 	public ResponseEntity<Member> updateMember(@PathVariable(value = "id") Long memid,
 			@Valid @RequestBody Member memDetails) {
 
-		Member mem = memberDAO.findOne(memid);
+		/*Member mem = memberDAO.findOne(memid);*/
+		
+		Member mem = new Member();
 		if (mem == null) {
 			return ResponseEntity.notFound().build();
 		}
@@ -76,7 +87,8 @@ public class MemberController {
 	@DeleteMapping("/members/{id}")
 	public ResponseEntity<Member> deleteMember(@PathVariable(value = "id") Long memid) {
 
-		Member mem = memberDAO.findOne(memid);
+		/*Member mem = memberDAO.findOne(memid);*/
+		Member mem = new Member();
 		if (mem == null) {
 			return ResponseEntity.notFound().build();
 		}

@@ -25,9 +25,9 @@ public class MemberDAO {
 	}
 
 	/* to read an existing member */
-	public Member findOne(Long empid) {
+	/*public Member findOne(Long empid) {
 		return memberRepository.findOne(empid);
-	}
+	} */
 
 	/* to delete a member whi no longer exists */
 	public void delete(Member emp) {
