@@ -46,6 +46,7 @@ public class ConsultantController {
 		 result.setPin(consultant.getPin());
 		 result.setUserName(consultant.getUserName());
 		 result.setDateofBirth(consultant.getDateofBirth());
+		 result.setEmail(consultant.getEmail());
 		 
 		 Consultant updateConsultant = consultantDAO.save(result);
 		 return ResponseEntity.ok().body(updateConsultant);
